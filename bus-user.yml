@@ -6,4 +6,4 @@ spring:
     mongodb:
       port: 27017
       host: nghia.tool
-      database: myDB18
+      database: myDB_TEST
