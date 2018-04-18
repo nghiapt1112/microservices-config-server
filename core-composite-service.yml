@@ -1,4 +1,5 @@
+spring.application.name: core-compose10
 spring:
   oauth2:
     resource:
-      userInfoUri: http://localhost:9999/uaa/user
+      userInfoUri: http://nghia.ms:9999/uaa/userInfoUri
