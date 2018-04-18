@@ -1,4 +1,3 @@
-spring.application.name: core-compose10
 spring:
   oauth2:
     resource:
