@@ -1,4 +1,5 @@
-spring:
-  oauth2:
-    resource:
-      userInfoUri: http://nghia.ms:9999/uaa/userInfoUri
+#spring:
+#  oauth2:
+#    resource:
+#      userInfoUri: http://nghia.ms:9999/uaa/userInfoUri
+my.config: name1
