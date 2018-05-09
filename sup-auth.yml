@@ -9,11 +9,15 @@ server:
 
 security.user.password: password
 
-security.oauth2.client:
-  clientId: acme
-  clientSecret: acmesecret
-  authorized-grant-types: authorization_code,refresh_token,implicit,password,client_credentials
-  scope: webshop
+security:
+  oauth2:
+    client:
+      clientId: acme
+      clientSecret: acmesecret
+      authorized-grant-types: authorization_code,refresh_token,implicit,password,client_credentials
+      scope: webshop
+      refresh-token-validity-seconds: 345600
+      access-token-validity-seconds: 172800
 
 logging.level:
   root: WARN

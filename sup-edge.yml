@@ -58,11 +58,26 @@ endpoints:
   health:
     sensitive: false
 
-# zuul:
-  # ignoredServices: "*"
-  # prefix: /api
-  # routes:
-    # composite-service: /product/**
+##########################
+#OAUTH2 CONFIGURATION
+##########################
+
+my.security.oauth2:
+  remote-token-endpoint: http://nghia.ms:9999/uaa/oauth/check_token
+  client:
+    client-id: fooClientIdPassword
+    client-secret: secret
+  user-service:
+    path: /user_path/**
+    expression: hasRole('ADMIN')
+  foo-service:
+    path: /foos/**
+    expression: (#oauth2.hasScope('webshop') or #oauth2.hasScope('read')) and hasRole('ADMIN')
+
+##########################
+#OAUTH2 CONFIGURATION
+##########################
+
 zuul:
   ignoredServices: "*"
   routes:
@@ -73,11 +88,10 @@ zuul:
       path: /compose/**
     bus-user:
       path: /user_path/**
+
 logging:
   level:
-    ROOT: WARN
-    se.callista: INFO
-
+    ROOT: INFO
     # Set DEBUG level to activate our log-filter to log each request and response
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
 
@@ -92,40 +106,3 @@ logging:
     # Set DEBUG level on Hystrix to get an error message when a fallback method is used.
     com.netflix.hystrix: DEBUG
     com.netflix.hystrix.strategy.properties.HystrixPropertiesChainedArchaiusProperty: WARN
----
-# For deployment in Docker containers
-spring:
-  profiles: docker
-
-server:
-  port: 8765
-  ssl:
-    trust-store: truststore.jks
-
-security:
-  oauth2:
-    resource:
-      userInfoUri: https://auth:9999/uaa/user
-
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
-
----
-# For deployment in Cloud Foundry
-spring:
-  profiles: cloud
-  oauth2:
-    resource:
-      userInfoUri: https://ml-public-auth.cfapps.io/uaa/user
-
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]:localhost}
-    nonSecurePort: 80
-  client:
-    serviceUrl:
-      defaultZone: http://ml-public-ds-1.cfapps.io/eureka/
