@@ -31,12 +31,6 @@ logging.level:
   org.springframework.security.oauth2.provider.endpoint.TokenEndpoint: INFO
   org.springframework.security.oauth2.provider.approval.AuthorizationEndpoint: INFO
 
-  # Set INFO to see the allocated port
-  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
-  org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
-
-  se.callista: INFO
-
 ---
 # For deployment in Docker containers
 spring:

@@ -36,6 +36,10 @@ logging:
 
     # To get rid of fake WARN messages: "Deprecated trace headers detected. Please upgrade Sleuth to 1.1 or start sending headers present in the TraceMessageHeaders class",
     org.springframework.cloud.sleuth.instrument.messaging.MessagingSpanExtractor: ERROR
+    
+      # Set INFO to see the allocated port
+    org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
+    org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
 
 spring.rabbitmq:
   host: nghia.tool
@@ -97,33 +101,3 @@ eureka:
 
 custom.gateway:
   url: http://nghia.ms:8765
----
-# For deployment in Docker containers
-spring:
-  profiles: docker
-
-server.port: 8080
-
-spring.rabbitmq.host: rabbitmq
-
-eureka:
-  instance:
-    preferIpAddress: true
-  client:
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
-
-
----
-# For deployment in Cloud Foundry
-spring:
-  profiles: cloud
-
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]:localhost}
-    nonSecurePort: 80
-  client:
-    serviceUrl:
-      defaultZone: http://ml-public-ds-1.cfapps.io/eureka/
-
