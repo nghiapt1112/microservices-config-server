@@ -19,22 +19,9 @@ security:
       refresh-token-validity-seconds: 345600
       access-token-validity-seconds: 172800
 
-logging.level:
-  root: WARN
-  org.springframework.security.oauth2: DEBUG
-  org.springframework.security.oauth2.config.annotation.web.configurers.FrameworkEndpointHandlerMapping: INFO
-  org.springframework.security.oauth2.provider.client.ClientCredentialsTokenGranter: DEBUG
-  org.springframework.security.oauth2.provider.password.ResourceOwnerPasswordTokenGranter: DEBUG
-  org.springframework.security.oauth2.provider.code.AuthorizationCodeTokenGranter: DEBUG
-  org.springframework.security.oauth2.provider.implicit.ImplicitTokenGranter: DEBUG
-  org.springframework.security.oauth2.provider.approval.ApprovalStoreUserApprovalHandler: DEBUG
-  org.springframework.security.oauth2.provider.endpoint.TokenEndpoint: INFO
-  org.springframework.security.oauth2.provider.approval.AuthorizationEndpoint: INFO
 
----
-# For deployment in Docker containers
-spring:
-  profiles: docker
-
-server:
-  port: 9999
+spring.data:
+  mongodb:
+    port: 27017
+    host: nghia.tool
+    database: DB_auth
