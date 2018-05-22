@@ -45,7 +45,7 @@ zuul:
   #RibbonRoutingFilter.route.disable: true // using custom routingFilter
   ignoredServices: "*"
   routes:
-    product_service:
+    BACKEND_SERVICE:
       path: /product/**
 #      stripPrefix: false
     core-composite-service:
