@@ -10,7 +10,7 @@ spring.sleuth.sampler.percentage: 1.0
 
 logging:
   level:
-    root: WARN
+    root: INFO, WARN, DEBUG
     com.nghia.tut.mss: INFO
 
     # Set DEBUG level to activate our log-filter to log each request and response

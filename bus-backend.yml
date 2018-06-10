@@ -1,0 +1,70 @@
+server:
+  port: 8082
+#  contextPath: /backend
+
+
+management:
+  port: 9000
+  health:
+    binders:
+      enabled: true
+
+logging:
+  file: /opt/application/logs/app.log
+
+spring:
+  application:
+      description: Backend microservice
+  rabbitmq:
+    contentType: application/json
+  cloud:
+    stream:
+      bindings:
+        myChannel:
+          contentType: application/json
+          destination: job-notifications-test
+          group: notifications
+          binder: rabbit
+  jpa:
+      hibernate:
+        ddl-auto: create
+      database: default
+      properties:
+        hibernate:
+          id:
+            new_generator_mappings: false
+sedex:
+  datasource:
+    url: jdbc:mysql://nghia.tool:3306/sedex_audit
+    username: root
+    password: root
+eicc:
+  datasource:
+    url: jdbc:mysql://nghia.tool:3306/eicc_audit
+    username: root
+    password: root
+
+#    hikari:
+#      connection-timeout: 60000
+#      maximum-pool-size: 5
+
+
+scheduler:
+  refresh:
+    millis: 10000
+
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 1
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+#  client:
+#    # Default values comes from org.springframework.cloud.netflix.eurek.EurekaClientConfigBean
+#    registryFetchIntervalSeconds: 1
+#    instanceInfoReplicationIntervalSeconds: 1
+#    initialInstanceInfoReplicationIntervalSeconds: 1
+#    serviceUrl:
+#      defaultZone: http://10.0.0.25:8761/eureka/
+

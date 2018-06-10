@@ -1,0 +1,12 @@
+server:
+  port: 38766
+
+info:
+  component: product service
+
+spring:
+  data:
+    mongodb:
+      port: 27017
+      host: nghia.tool
+      database: myDB_product_22

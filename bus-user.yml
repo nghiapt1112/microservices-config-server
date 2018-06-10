@@ -1,6 +1,6 @@
 server:
-  port: 8763
-
+  port: 38765
+  contextPath: /myuser
 info:
   component: user service
 

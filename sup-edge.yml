@@ -36,6 +36,9 @@ my.security.oauth2:
   composite-service:
     path: /compose/**
     expression: hasRole('ADMIN') or hasRole('READ')
+  backend-service:
+    path: /backend_path/**
+    expression: hasRole('ADMIN') or hasRole('READ')
 
 ##########################
 #ZUUL PROXY
@@ -45,10 +48,10 @@ zuul:
   #RibbonRoutingFilter.route.disable: true // using custom routingFilter
   ignoredServices: "*"
   routes:
-    BACKEND_SERVICE:
+    bus-product:
       path: /product/**
 #      stripPrefix: false
-    core-composite-service:
+    bus-composite:
       path: /compose/**
     bus-user:
       path: /user_path/**
@@ -56,4 +59,5 @@ zuul:
       path: /compose2/**
     test-tenant1:
       path: /compose1/**
-
+    bus-backend:
+      path: /backend_path/**
