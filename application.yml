@@ -36,10 +36,6 @@ logging:
 
     # To get rid of fake WARN messages: "Deprecated trace headers detected. Please upgrade Sleuth to 1.1 or start sending headers present in the TraceMessageHeaders class",
     org.springframework.cloud.sleuth.instrument.messaging.MessagingSpanExtractor: ERROR
-    
-      # Set INFO to see the allocated port
-    org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer: INFO
-    org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainer: INFO
 
 spring.rabbitmq:
   host: nghia.tool
