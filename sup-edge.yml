@@ -16,14 +16,15 @@ server:
 security:
   oauth2:
     resource:
-      userInfoUri: http://nghia.ms:9999/uaa/user
+      userInfoUri: http://SUP-AUTH/uaa/user
 
 ##########################
 #OAUTH2 CONFIGURATION
 ##########################
+my.security.issuer-claim-verifier.url: http://SUP-AUTH/
 
 my.security.oauth2:
-  remote-token-endpoint: http://nghia.ms:9999/uaa/oauth/check_token
+  remote-token-endpoint: http://SUP-AUTH/uaa/oauth/check_token
   client:
     client-id: fooClientIdPassword
     client-secret: secret
