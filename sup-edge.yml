@@ -13,10 +13,6 @@ server:
     #trust-store: src/main/resources/truststore.jks
     #trust-store-password: password
 
-security:
-  oauth2:
-    resource:
-      userInfoUri: http://SUP-AUTH/uaa/user
 
 ##########################
 #OAUTH2 CONFIGURATION
@@ -24,7 +20,9 @@ security:
 my.security.issuer-claim-verifier.url: http://SUP-AUTH/
 
 my.security.oauth2:
-  remote-token-endpoint: http://SUP-AUTH/uaa/oauth/check_token
+  remote-token-endpoint:
+    uri: uaa/oauth/check_token
+    authServiceId: SUP-AUTH
   client:
     client-id: fooClientIdPassword
     client-secret: secret
