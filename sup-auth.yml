@@ -25,3 +25,8 @@ spring.data:
     port: 27017
     host: nghia.tool
     database: DB_auth
+
+spring.redis:
+  host: nghia.ms
+  pool:
+    max-active: 8
