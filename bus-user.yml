@@ -1,6 +1,5 @@
 server:
   port: 38765
-  contextPath: /myuser
 info:
   component: user service
 

@@ -1,6 +1,5 @@
 server:
   port: 38764
-  contextPath: /myconposite
 
 #spring:
 #  oauth2:
