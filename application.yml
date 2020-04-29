@@ -93,7 +93,7 @@ eureka:
     instanceInfoReplicationIntervalSeconds: 1
     initialInstanceInfoReplicationIntervalSeconds: 1
     serviceUrl:
-      defaultZone: http://nghia.ms:8761/eureka/
+      defaultZone: http://eureka.demomicroservices.com/eureka/
 
 custom.gateway:
-  url: http://nghia.ms:8765
+  url: http://gate.demomicroservices.com:8765
